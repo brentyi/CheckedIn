@@ -1,11 +1,44 @@
 /* CSS declarations go here */
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html,body{
+  height: 100%;
+}
 body{
+  font-size: 1.5em;
+  box-sizing: content-box;
   opacity: 1;
   transform: initial;
   transition: all 0.3s;
+  background-color: #08e;
+  padding: 0 1em;
+  color: #fff;
+  text-align: center;
 }
 body.hidden{
   opacity: 0;
   transform: translateY(-0.5em);
+}
+
+button{
+  display: inline-block;
+  padding: 1rem; 
+  border: 0;
+  color: #fff;
+  background: #06d;;
+  border: 0;
+  margin: 0.25rem;
+  font-size: 0.5em;
+}
+.fa{
+  opacity: 0.8;
+}
+
+#main_wrapper{
+  position: relative;
+  top: 48%;
+  transform: translateY(-50%);
 }

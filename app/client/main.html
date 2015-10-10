@@ -3,14 +3,14 @@
 </head>
 
 <body>
-  {{> main_app}}
+  <div id="main_wrapper">
+    {{> main_app}}
+  </div>
 </body>
 
 <template name="main_app">
-  <input type="text" id="test" />
-  <input type="button" id="save_test" />
+<!--  <input type="text" id="test" />
+  <input type="button" id="save_test" /> -->
   {{> Template.dynamic template=current_template}}
 </template>
 
-<template name="state_home">
-</template>
