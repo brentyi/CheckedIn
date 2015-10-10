@@ -1,15 +1,33 @@
-// counter starts at 0
-Session.setDefault('counter', 0);
+//set default app state
+Session.setDefault('state', 'home');
 
-Template.hello.helpers({
-  counter: function () {
-    return Session.get('counter');
+Template.main_app.helpers({
+  current_template: function(){
+    return 'state_' + Session.get('state');
   }
 });
 
-Template.hello.events({
-  'click button': function () {
-    // increment the counter when button is clicked
-    Session.set('counter', Session.get('counter') + 1);
+Template.main_app.events({ //temp
+  'click #save_test': function(){
+    switchAppState($('#test').val());
   }
 });
+
+switchAppState = function(new_state, callback){
+  var cb = callback;
+
+  $('body').animate({
+      opacity: 0
+    }, 400, function(){
+      Session.set('state', new_state);
+    }
+  );
+
+  setTimeout(function(){
+    $('body').animate({
+      opacity: 1
+    }, 400, function(){
+      cb || cb();
+    });
+  }, 500);
+}

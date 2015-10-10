@@ -1,4 +1,4 @@
- Template.body.events({
+ Template.state_createEvent.events({
     "submit .createNewEvent": function (event) {
       // Prevent default browser form submit
       event.preventDefault();
