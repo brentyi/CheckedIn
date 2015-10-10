@@ -1,5 +1,5 @@
 
-Template.first_registration.events({
+Template.state_registration.events({
     'submit form': function (event) {
       var name = $(".fullName").val();
       var email = $(".emailAddress").val();
