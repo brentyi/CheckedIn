@@ -21,3 +21,11 @@ bluetoothSerial.enable(
 	function() {
 		alert("It failed!!");
 	});
+bluetoothSerial.discoverUnpaired(function(devices) {
+    devices.forEach(function(device) {
+        alert((device.id) + " has been found!");
+    })
+}, function(){
+
+	alert("No devices found");
+});
