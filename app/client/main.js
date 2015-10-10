@@ -10,7 +10,12 @@ Template.hello.helpers({
 Template.hello.events({
   'click button': function () {
     // increment the counter when button is clicked
-    Session.set('counter', Session.get('counter') + 1);
+    ble.startScan([], function(device) {
+		alert(JSON.stringify(device));
+	},
+	function() {
+		alert("It failed!!");
+	});
   }
 });
 
@@ -21,11 +26,11 @@ bluetoothSerial.enable(
 	function() {
 		alert("It failed!!");
 	});
-bluetoothSerial.discoverUnpaired(function(devices) {
+/*bluetoothSerial.discoverUnpaired(function(devices) {
     devices.forEach(function(device) {
         alert((device.id) + " has been found!");
     })
 }, function(){
 
 	alert("No devices found");
-});
+});*/
