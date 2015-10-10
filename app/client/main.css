@@ -1,1 +1,11 @@
 /* CSS declarations go here */
+
+body{
+  opacity: 1;
+  transform: initial;
+  transition: all 0.3s;
+}
+body.hidden{
+  opacity: 0;
+  transform: translateY(-0.5em);
+}

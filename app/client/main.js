@@ -15,19 +15,14 @@ Template.main_app.events({ //temp
 
 switchAppState = function(new_state, callback){
   var cb = callback;
+  var ns = new_state;
 
-  $('body').animate({
-      opacity: 0
-    }, 400, function(){
-      Session.set('state', new_state);
-    }
-  );
-
+  $('body').addClass('hidden');
   setTimeout(function(){
-    $('body').animate({
-      opacity: 1
-    }, 400, function(){
-      cb || cb();
-    });
-  }, 500);
+    Session.set('state', ns);
+    $('body').removeClass('hidden');
+    setTimeout(function(){
+      cb && cb();
+    }, 300);
+  }, 350);
 }
