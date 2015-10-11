@@ -1,7 +1,7 @@
 Template.state_home.events({
   'click #checkin_button': function(){
     //make bluetooth visible
-    bluetoothSerial.discover.enable(
+    bluetoothSerial.enable(
       function() {
         console.log("Bluetooth is enabled");
       },
