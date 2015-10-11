@@ -92,6 +92,15 @@ button{
   background-color: #29416D;
 }
 
+#previous_button {
+  display: block;
+  width: 12.5em;
+  background-color: transparent;
+  border: solid;
+  border-width: 2px;
+  border-color: #30528E;
+}
+
 .fa{
   opacity: 0.8;
 }
@@ -200,4 +209,46 @@ button{
   border-radius: 3px;
 }
 
+/*Previous Events*/
+.previousEvents {
+  font-size: 0.6em;
+  display: block;
+  margin: 0.3em auto;
+  margin-top: 0.8em;
+  color: #47B6E8;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #47B6E8;
+  border-width: 3px;
+  width: 12em;
+}
+#PreviousEvents{
+  height: 50%;
+  width: 50%;
+}
 
+/*First General Meeting*/
+#Attendance_Title{
+  margin: 0.5em auto;
+  margin-top: 0.75em;
+}
+
+#First_Meeting_Attendance{
+  margin-bottom: 0.7em;
+}
+
+.Roster {
+
+}
+
+/*Home Button*/
+.HomeButton {
+  display: block;
+  margin: 0;
+  background-color: transparent
+}
+
+.buttonOverlay {
+  background-color: #303030;
+
+}

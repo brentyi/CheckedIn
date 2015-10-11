@@ -33,7 +33,11 @@ Template.state_home.events({
   },
   'click #profile_button': function(){
     switchAppState('registration');
+  },
+  'click #previous_button': function(){
+    switchAppState('previousEvents');
   }
+
 });
 
 
