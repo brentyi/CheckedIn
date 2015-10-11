@@ -1,14 +1,14 @@
 
 <template name="state_registration">
-		<h1> this is the registration screen for first time users! yay!</h1>
-
+	<img id="registrationIcon" src="/registrationIcon.svg"/>
+	<p id="userTitle"> New User </p>
 	<form action="register_form.asp">
-		Full Name: <input type="text" class="fullName" placeholder="John Doe" /><br>
-		Email Address: <input type="email" class="emailAddress" placeholder="johndoe@berkeley.edu"><br>
-		Phone Number: <input type="tel" class="phoneNumber" placeholder="(916)619-6969"><br>
-		<input type="submit" value="Submit">
+		<p class = "formTitles"> Full Name </p>
+		<input class="textBox" type="text"/> 
+		<p class = "formTitles"> Email Address </p>
+		<input class="textBox" type="email"> 
+		<p class = "formTitles"> Phone Number </p>
+		<input class="textBox" type="tel"> 
+		<button id ="submitButton" type="submit"> Submit </button>
 	</form>
-
-
-
 </template>
