@@ -33,35 +33,36 @@ Template.state_hostingEvent.helpers({
 Template.state_hostingEvent.events({
   'click #host_button': function(){
     if($('#host_button').html() == 'Scan'){
-      bluetoothSerial.enable(
-        function() {
-          console.log("Bluetooth is enabled");
-        },
-        function() {
-          console.log("The user did *not* enable Bluetooth");
-        }
-      );
-      var discint = setInterval(function(){
-      if(Session.get('state') != hostingEvent){
-        clearInterval(discint);
+    bluetoothSerial.enable(
+      function() {
+        console.log("Bluetooth is enabled");
+      },
+      function() {
+        console.log("The user did *not* enable Bluetooth");
       }
-      bluetoothSerial.discoverUnpaired(
-        function() {
+    );
+// meteor add cordova:cordova-plugin-bluetooth-serial@0.4.4
+    bluetoothSerial.discoverUnpaired([],
+        function(device) {
+            var x = device.id;
+            alert(x);
         },
-
         function() {
-          console.log("discoverUnpaired failure");
+            alert("It failed!!");
         }
-      );}, 1000);
-
-      bluetoothSerial.setDeviceDiscoveredListener(function(device) {
+    );
+     bluetoothSerial.setDeviceDiscoveredListener (function(device){
         var x = device.id;
+        Session.set('message','found '+x);
         var eid = Session.get('event_id');
         var user = Members.findOne(x);
         var attendees = Events.findOne(eid).attendees;
-        if(!user || attendees.indexOf(user) != -1)
+        if(!user)
           return;
-        
+        for(var i =0; i < attendees.length; i++){
+        if(attendees[i]._id == x)
+                return;
+}
         Events.update(
           eid,
           {
@@ -73,9 +74,9 @@ Template.state_hostingEvent.events({
           alert("Bluetooth scan failed!!");
         }
       );
-
-      $('#host_text').text('Scanning... ');
-      $('#host_button').html('Finish');
+      
+$('#host_text').text('Scanning... ');
+//      $('#host_button').html('Finish');
     }else{
       switchAppState('home');
     }
