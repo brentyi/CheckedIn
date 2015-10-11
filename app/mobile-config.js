@@ -8,6 +8,7 @@ App.info({
   email: 'contact@example.com',
   website: 'http://example.com'
 });
+App.accessRule("*");
 
 
 /* TODO: logos + launch/splash screens
