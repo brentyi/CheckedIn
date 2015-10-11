@@ -6,12 +6,12 @@ Template.state_registration.events({
       var email = $(".emailAddress").val();
       var phone = $(".phoneNumber").val();
 
-    var x =Members.insert ({
-        _id: Session.get('bluetooth_mac'),
-        name: name,
-        email: email,
-        phone: phone
-    });
+      Members.upsert ({
+          _id: Session.get('bluetooth_mac'),
+          name: name,
+          email: email,
+          phone: phone
+      });
 
     Session.set('message', x);
   }
