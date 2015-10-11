@@ -1,8 +1,43 @@
 //set default app state
-Session.setDefault('state', 'home');
+Session.set('state', '');
 
-//global variable for bluetooth mac address
-Session.set('bluetooth_mac', '00:00:00:00:00:00');
+//this is a hack
+Session.set('loaded', false);
+
+Session.set('bluetooth_mac', '');
+Meteor.startup(function(){
+  MacAddress.getMacAddress(
+    function(macAddress) {
+      //global variable for bluetooth mac address
+      Session.set('bluetooth_mac', macAddress);
+    },
+    function(fail) {
+      alert(fail);
+    }
+  );
+}); 
+
+Tracker.autorun(function(){
+  if(!Session.get('loaded') && Members.findOne()){
+    if(Members.findOne(Session.get('bluetooth_mac'))){
+      switchAppState('home');
+    }else{
+      switchAppState('registration');
+    }
+  }
+});
+
+Template.body.helpers({
+  addr: function(){
+    return Session.get('bluetooth_mac');
+  },
+  state: function(){
+    return Members.findOne(Session.get('bluetooth_mac'))._id + "|" + Session.get('state') + " | " + Meteor.status().status;
+  },
+  msg: function(){
+    return Session.get('message');
+  }
+});
 
 Template.main_app.helpers({
   current_template: function(){
