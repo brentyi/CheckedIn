@@ -1,8 +1,15 @@
 <template name="state_createEvent">
+<img id="createNewEvent" src="/createNewEvent.svg"/>
+<p id="Title"> Create New Event </p>
+ <div id="overlaybox"> 
   <form class="createNewEvent">
-    <input type="text" placeholder="Event Name" id="textName" />
-    <input type="text" placeholder="Organization" id="textOrganization" />
-    <textarea id="textDetails" placeholder="Details"></textarea>
-    <button type="submit"> Create Event </button>
+  	<p id = "eventNameTitle"> Event Name </p>
+    <input type="text" id="textName" />
+    <p id = "organizationTitle"> Organization </p>
+    <input type="text" id="textOrganization" />
+    <p id = "eventDetailsTitle"> Event Details </p>
+    <textarea id="textDetails"> </textarea>
+    <button id ="creatEventButton" type="submit"> Create Event </button>
   </form>
+ </div>
 </template>
