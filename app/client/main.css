@@ -1,8 +1,38 @@
 /* CSS declarations go here */
+/*Fonts*/
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(/RobotoFont300.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(/RobotoFont400.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(/RobotoFont500.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+20) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+/*Home Page */
 *{
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: inherit;
 }
 html,body{
   height: 100%;
@@ -13,9 +43,10 @@ body{
   opacity: 1;
   transform: initial;
   transition: all 0.3s;
-  background-color: #08e;
+  background-color: #212121;
   padding: 0 1em;
   color: #fff;
+  font-family: 'Roboto';
   text-align: center;
 }
 body.hidden{
@@ -23,16 +54,44 @@ body.hidden{
   transform: translateY(-0.5em);
 }
 
+#checkInLogo{
+  height: 50%;
+  width: 50%;
+}
+#shadow {
+  box-shadow: 10px 10px 5px #888888;
+}
+
 button{
   display: inline-block;
   padding: 1rem; 
   border: 0;
+  border-radius: 1px;
   color: #fff;
-  background: #06d;;
+  background: #3659A8;
   border: 0;
-  margin: 0.25rem;
+  margin: 0.5em auto;
   font-size: 0.5em;
 }
+
+#checkin_button{
+  display: block;
+  width: 8.5em;
+  font-size: 0.7em;
+}
+
+#host_button{
+  width: 4.5em;
+  margin-right: 0.25em;
+  background-color: #29416D;
+}
+
+#profile_button{
+  width: 4.5em;
+  margin-left: 0.25em;
+  background-color: #29416D;
+}
+
 .fa{
   opacity: 0.8;
 }
@@ -42,3 +101,103 @@ button{
   top: 48%;
   transform: translateY(-50%);
 }
+
+/*Create Event Page*/
+#createNewEvent{
+  height: 50%;
+  width: 50%;
+}
+
+#Title{
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  margin-bottom: 0.9em;
+}
+
+#creatEventButton {
+  background-color: #3659A8;
+  font-size: 0.6em;
+  padding: 0.5rem;
+  display: block;
+  width: 8.5em;
+  margin: 1em auto;
+  margin-top: 0.5em;
+}
+
+#eventNameTitle {
+  font-size: 0.6em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.8em;
+  color: #47B6E8;
+}
+
+#organizationTitle {
+  font-size: 0.6em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.8em;
+  color: #47B6E8;
+}
+
+#eventDetailsTitle {
+  font-size: 0.6em;
+  display: block;
+  margin: 0 auto;
+  margin-top: 0.8em;
+  color: #47B6E8;
+}
+
+#textName, #textOrganization, #textDetails {
+  font-size: 0.6em;
+  width: 9.5em;
+  display: block;
+  margin: 0.5em auto;
+  margin-bottom: 1em;
+  padding: 0;
+  border-width: 0.15em;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+/*Registration Page*/
+#registrationIcon {
+  height: 50%;
+  width: 50%;
+}
+
+#userTitle{
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  margin-bottom: 0.7em;
+}
+
+.formTitles {
+  font-size: 0.6em;
+  display: block;
+  margin: 0.3em auto;
+  margin-top: 0.8em;
+  color: #47B6E8;
+}
+
+#submitButton {
+  background-color: #3659A8;
+  font-size: 0.6em;
+  padding: 0.5rem;
+  display: block;
+  width: 8.5em;
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+.textBox{
+  font-size: 0.6em;
+  width: 9.5em;
+  display: block;
+  margin: 0 auto;
+  border-width: 0.15em;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+
