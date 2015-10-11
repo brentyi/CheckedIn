@@ -9,6 +9,15 @@ Template.state_home.events({
             console.log("The user did *not* enable Bluetooth");
         }
     );
+
+    ble.startScan([],
+        function(device) {
+            alert(JSON.stringify(device));
+        },
+        function() {
+            alert("It failed!!");
+        }
+    );
   },
   'click #host_button': function(){
     switchAppState('createEvent');
