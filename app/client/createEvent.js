@@ -33,7 +33,7 @@ Template.state_hostingEvent.helpers({
 Template.state_hostingEvent.events({
   'click #host_button': function(){
     if($('#host_button').html() == 'Scan'){
-      ble.enable(
+      bluetoothSerial.enable(
         function() {
           console.log("Bluetooth is enabled");
         },
@@ -41,24 +41,37 @@ Template.state_hostingEvent.events({
           console.log("The user did *not* enable Bluetooth");
         }
       );
+      var discint = setInterval(function(){
+      if(Session.get('state') != hostingEvent){
+        clearInterval(discint);
+      }
+      bluetoothSerial.discoverUnpaired(
+        function() {
+        },
 
-      ble.startScan([],
-          function(device) {
-              alert("oh hello:" + device.id);
-              /*var x = device.id;
-              var eid = Session.get('event_id');
-              user = Members.findOne(x);
-              user && alert(user.name);
-              user && Events.update(
-                eid,
-                {
-                  attendees: Events.findOne(eid).attendees.concat([user])
-                }
-              );*/
-          },
-          function() {
-              alert("Bluetooth scan failed!!");
+        function() {
+          console.log("discoverUnpaired failure");
+        }
+      );}, 1000);
+
+      bluetoothSerial.setDeviceDiscoveredListener(function(device) {
+        var x = device.id;
+        var eid = Session.get('event_id');
+        var user = Members.findOne(x);
+        var attendees = Events.findOne(eid).attendees;
+        if(!user || attendees.indexOf(user) != -1)
+          return;
+        
+        Events.update(
+          eid,
+          {
+            attendees: attendees.concat([user])
           }
+        );
+        },
+        function() {
+          alert("Bluetooth scan failed!!");
+        }
       );
 
       $('#host_text').text('Scanning... ');

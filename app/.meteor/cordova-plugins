@@ -1,2 +1,3 @@
 com.joshy.MacAddress.MacAddressPlugin@https://github.com/jjyuan/MACAddressPlugin.git#12308c7d66dea2c24766efcb792aed47c6784a7e
 cordova-plugin-ble-central@1.0.1
+cordova-plugin-bluetooth-serial@0.4.4

@@ -27,6 +27,17 @@ Tracker.autorun(function(comp){
   }
 });
 
+Tracker.autorun(function(comp){
+  Events.find().forEach(function(obj){
+    for(var i = 0; i < obj.attendees.length; i++){
+      if(obj.attendees[i]._id == Session.get('bluetooth_mac' && !Session.get('checkedinto_' + obj.name))){
+        alert('Checked into ' + obj.name);
+        Session.set('checkedinto_' + obj.name);
+      }
+    }
+  });
+});
+
 Template.body.helpers({
   addr: function(){
     return Session.get('bluetooth_mac');

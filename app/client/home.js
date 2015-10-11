@@ -1,24 +1,9 @@
 Template.state_home.events({
   'click #checkin_button': function(){
     //make bluetooth visible
-    bluetoothSerial.enable(
-      function() {
-        console.log("Bluetooth is enabled");
-      },
-      function() {
-        console.log("The user did *not* enable Bluetooth");
-      }
-    );
+
+
 // meteor add cordova:cordova-plugin-bluetooth-serial@0.4.4
-    bluetoothSerial.discoverUnpaired([],
-        function(device) {
-            var x = device.id;
-            alert(x);
-        },
-        function() {
-            alert("It failed!!");
-        }
-    );
   },
   'click #host_button': function(){
     switchAppState('createEvent');

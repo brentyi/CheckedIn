@@ -20,9 +20,9 @@
 <template name="state_hostingEvent">
 <img id="createNewEvent" src="/createNewEvent.svg"/>
 <p id="Title">Hosting {{eventname}}</p> <!-- legit use of the paragraph tag -->
-<span id="host_text"></span><button type="button" id="host_button">Scan</button>
+<span id="host_text" style="font-size: 0.5em"></span><button type="button" id="host_button">Scan</button>
 <br />
 {{#each attendees}}
-  {{name}} - <em>{{email}}</em><br />
+  <div style="font-size: 0.7em; border-bottom: 1px solid rgba(255,255,255,0.2)">{{name}} - <em>{{email}}</em></div>
 {{/each}}
 </template>

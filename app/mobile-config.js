@@ -6,9 +6,9 @@ App.accessRule("https://*");
 
 App.info({
   id: 'com.example.cal.hacks',
-  name: 'CalHacks15',
-  description: 'Lorem Ipsum',
-  author: 'Brilloshqidley',
+  name: 'CheckedIn',
+  description: 'Easy check-ins',
+    author: 'Billy, Josh, Bradley, Brent, Ziqi',
   email: 'contact@example.com',
   website: 'http://example.com'
 });
