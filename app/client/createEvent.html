@@ -16,3 +16,13 @@
   </form>
  </div>
 </template>
+
+<template name="state_hostingEvent">
+<img id="createNewEvent" src="/createNewEvent.svg"/>
+<p id="Title">Hosting {{eventname}}</p> <!-- legit use of the paragraph tag -->
+<span id="host_text"></span><button type="button" id="host_button">Scan</button>
+<br />
+{{#each attendees}}
+  {{name}} - <em>{{email}}</em><br />
+{{/each}}
+</template>

@@ -1,5 +1,9 @@
 // This section sets up some basic app metadata,
 // the entire section is optional.
+
+App.accessRule("http://*");
+App.accessRule("https://*");
+
 App.info({
   id: 'com.example.cal.hacks',
   name: 'CalHacks15',
@@ -8,7 +12,7 @@ App.info({
   email: 'contact@example.com',
   website: 'http://example.com'
 });
-App.accessRule("*");
+
 
 
 /* TODO: logos + launch/splash screens
